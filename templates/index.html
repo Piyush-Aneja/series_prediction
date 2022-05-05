@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}">
+
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="intro">Welcome</h1>
+
+    <div id="container">
+        <form action="/predict" method="POST">
+            <label for="train">
+                <h2 class="input_header">Enter your series(separated by comma) </h2></label>
+           <input type="text" name="train" id="train">
+
+           <br>
+    
+           <label for="test">
+               <h2 class="input_header"> Enter the term, will try to predict the next turn</h2></label>
+           <input type="text" name="test" id="test">
+           <br>
+           <h3 class="ans"> {{series}}</h3>
+           <h3 class="ans"> {{term}}</h3>
+           <h2 class="ans" id="final_ans"> {{prediction_value}}</h2> 
+           <button id="submit_btn" type="submit">Predict</button>
+        </form>
+      
+    </div>
+    <br>
+    
+    <!-- for displaying plot -->
+
+    <!-- <h1>Display  {{img_src}}</h1>
+      <!-- <img src= "{{img_src}}" alt="plot here.!!!!!">  -->
+      <img src="{{url_for('static', filename='graph.png')}}" /> -->
+    
+   
+</body>
+</html>
